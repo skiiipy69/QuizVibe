@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className="w-full bg-transparent text-neutral-900 px-5 md:px-10 flex items-center justify-between py-5 text-sm border-b-slate-200 border">
       <h1 className="text-orange-500 text-2xl font-bold tracking-tight flex items-center gap-1">
-        Bert<span className="text-neutral-900"> Quiz</span>
+        Quiz<span className="text-neutral-900"> Vibe</span>
         {/* <div className="w-2 h-2 bg-red-500 mt-2 ml-1 rounded-full" /> */}
       </h1>
       <div className="space-x-5">
