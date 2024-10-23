@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import useQuestionStore from "./store/zustand";
 import AnimateProvider from "./components/AnimateProvider/AnimateProvider";
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./src/LandingPage/LandingPage.jsx";
 
 function App() {
   const [type, setType] = useState(Types[0].id);
