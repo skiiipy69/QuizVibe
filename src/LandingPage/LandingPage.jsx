@@ -4,31 +4,48 @@ import './LandingPage.css'; // Link to your CSS file
 const LandingPage = () => {
   return (
     <div className="landing-page">
+      {/* Header Section */}
       <header className="landing-header">
-        <h1>Welcome to QuizVibe</h1>
-        <p>Explore, Learn, and Challenge Yourself with Engaging Quizzes!</p>
+        <h1 className="title">Bienvenue sur <span>QuizVibe</span></h1>
+        <p className="subtitle">Testez vos connaissances avec des quiz interactifs amusants !</p>
         <div className="cta-buttons">
-          <button className="start-quiz">Start a Quiz</button>
-          <button className="learn-more">Learn More</button>
+          <button className="cta start-quiz">Commencez un Quiz</button>
+          <button className="cta learn-more">En savoir plus</button>
         </div>
       </header>
+
+      {/* Description Section */}
+      <section className="about">
+        <h2>Découvrez QuizVibe</h2>
+        <p>
+          QuizVibe est une plateforme de quiz conçue pour tester et améliorer vos connaissances. Avec une variété
+          de thèmes, des niveaux de difficulté et des défis amusants, vous pouvez jouer seul ou avec des amis.
+        </p>
+      </section>
+
+      {/* Features Section */}
       <section className="features">
-        <h2>Why Choose QuizVibe?</h2>
+        <h2>Pourquoi choisir QuizVibe ?</h2>
         <div className="feature-list">
           <div className="feature-item">
-            <h3>Variety of Topics</h3>
-            <p>From history to pop culture, we have quizzes for everyone.</p>
+            <h3>Différents Thèmes</h3>
+            <p>Explorez des quiz dans divers domaines, de l'histoire à la culture pop.</p>
           </div>
           <div className="feature-item">
-            <h3>Challenge Your Friends</h3>
-            <p>Compete with friends and see who tops the leaderboard!</p>
+            <h3>Défis Amicaux</h3>
+            <p>Invitez vos amis à participer et voyez qui est le meilleur !</p>
           </div>
           <div className="feature-item">
-            <h3>Track Your Progress</h3>
-            <p>Earn badges and track your knowledge growth over time.</p>
+            <h3>Suivi de Progrès</h3>
+            <p>Gagnez des badges et suivez vos progrès à mesure que vous apprenez.</p>
           </div>
         </div>
       </section>
+
+      {/* Footer Section */}
+      <footer className="footer">
+        <p>© 2024 QuizVibe - Tous droits réservés</p>
+      </footer>
     </div>
   );
 };
