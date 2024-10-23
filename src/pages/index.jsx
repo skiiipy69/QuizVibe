@@ -1,7 +1,6 @@
 export { default as LoginPage } from "./Login/LoginPage";
 export { default as Question } from "./Question/Question";
 export { default as RegisterPage } from "./Register/RegisterPage";
-export { default as LandingPage } from "./LandingPage/LandingPage";
 // export { default as RootLayout } from "../layout/RootLayout";
 export { default as SingleQuestion } from "./Question/SingleQuestion";
 export { default as RequireAuth } from "./Require/RequireAuth";
