@@ -1,132 +1,104 @@
 import React from 'react';
-import { Link, Form } from "react-router-dom";
-import { motion } from "framer-motion";
+import { Link, Form, useActionData } from "react-router-dom";
 
 function LoginForm({ loading }) {
-  const inputVariants = {
-    focus: { scale: 1.02 },
-    blur: { scale: 1 }
-  };
+  const actionData = useActionData();
 
   return (
     <Form
-      className="flex flex-col w-full space-y-6"
+      className="flex flex-col max-w-[420px] mx-auto space-y-4"
       action="/login"
       method="post"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-      >
+      <h1 className="font-bold text-2xl text-neutral-900">
+        Login to Your Account
+      </h1>
+      
+      <div>
         <label
-          className="text-sm text-gray-600 font-medium block mb-2"
+          className="text-sm text-neutral-600 font-semibold"
           htmlFor="email"
         >
-          Email Address
+          Email
         </label>
-        <motion.input
-          variants={inputVariants}
-          whileFocus="focus"
-          animate="blur"
-          transition={{ duration: 0.2 }}
+        <input
           type="email"
           id="email"
           name="email"
           autoComplete="email"
           required
+          aria-describedby="email-error"
           placeholder="Enter your email"
-          className="w-full px-4 py-3 rounded-xl bg-white/50 backdrop-blur-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent transition-all duration-200"
+          className="w-full mt-1 bg-neutral-50 border border-gray-200 rounded-lg p-3 placeholder:text-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/80"
         />
-      </motion.div>
+        {actionData?.errors?.email && (
+          <p id="email-error" className="mt-1 text-xs text-red-500">
+            {actionData.errors.email}
+          </p>
+        )}
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <div className="flex justify-between items-center mb-2">
+      <div>
+        <div className="flex justify-between items-center">
           <label
-            className="text-sm text-gray-600 font-medium"
+            className="text-sm text-neutral-600 font-semibold"
             htmlFor="password"
           >
             Password
           </label>
-          <Link 
-            to="/forgot-password"
-            className="text-sm text-orange-500 hover:text-rose-500 transition-colors"
-          >
+          <Link to="/forgot-password" className="text-xs text-orange-500 hover:underline">
             Forgot Password?
           </Link>
         </div>
-        <motion.input
-          variants={inputVariants}
-          whileFocus="focus"
-          animate="blur"
-          transition={{ duration: 0.2 }}
+        <input
           type="password"
           id="password"
           name="password"
           autoComplete="current-password"
           required
+          aria-describedby="password-error"
           placeholder="Enter your password"
-          className="w-full px-4 py-3 rounded-xl bg-white/50 backdrop-blur-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent transition-all duration-200"
+          className="w-full mt-1 bg-neutral-50 border border-gray-200 rounded-lg p-3 placeholder:text-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/80"
         />
-      </motion.div>
+        {actionData?.errors?.password && (
+          <p id="password-error" className="mt-1 text-xs text-red-500">
+            {actionData.errors.password}
+          </p>
+        )}
+      </div>
 
-      <motion.button
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+      <button
         disabled={loading}
-        className={`relative w-full py-4 px-6 rounded-xl font-semibold text-white shadow-lg transition-all duration-200 ${
+        className={`flex items-center justify-center w-full rounded-full p-3 font-semibold text-lg transition ${
           loading
-            ? "bg-gradient-to-r from-orange-400 to-orange-500 cursor-not-allowed"
-            : "bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600"
+            ? "bg-orange-300 cursor-not-allowed"
+            : "bg-orange-500 hover:bg-orange-600 text-white"
         }`}
         type="submit"
       >
-        <motion.div
-          initial={false}
-          animate={loading ? { opacity: 1 } : { opacity: 0 }}
-          className="absolute inset-0 bg-white/10 rounded-xl"
-        />
         {loading ? (
-          <div className="flex items-center justify-center">
-            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <>
+            <svg className="animate-spin h-5 w-5 mr-3 text-white" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
-            Signing in...
-          </div>
+            Signing In...
+          </>
         ) : (
           "Sign In"
         )}
-      </motion.button>
+      </button>
 
-      <div className="relative my-8">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-200"></div>
-        </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="px-4 bg-white/90 text-gray-500">New to our platform?</span>
-        </div>
-      </div>
+      {actionData?.error && (
+        <p className="text-sm text-red-500 text-center">{actionData.error}</p>
+      )}
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7 }}
-      >
-        <Link
-          to="/register"
-          className="block w-full py-4 px-6 rounded-xl font-semibold text-orange-500 border-2 border-orange-500 hover:bg-gradient-to-r hover:from-orange-500 hover:to-rose-500 hover:text-white transition-all duration-300 text-center"
-        >
-          Create Account
+      <p className="text-gray-600 text-sm font-semibold text-center">
+        Don't have an account?{" "}
+        <Link className="text-orange-500 hover:underline" to="/register">
+          Sign Up
         </Link>
-      </motion.div>
+      </p>
     </Form>
   );
 }
