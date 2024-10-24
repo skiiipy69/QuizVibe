@@ -30,7 +30,7 @@ function App() {
         Select type{" "}
       </h3>
       <select
-        className="bg-neutral-50 ring-[1px] ring-gray-200  rounded-lg px-1 py-2 md:py-3  text-xs md:text-sm focus:border-none focus:outline-none focus:ring-[1px] focus:ring-orange-500 text-gray-700 font-medium mb-5"
+        className="bg-neutral-50 ring-[1px] ring-gray-200  rounded-lg px-1 py-2 md:py-3  text-xs md:text-sm focus:border-none focus:outline-none focus:ring-[1px] focus:ring-teal-500 text-gray-700 font-medium mb-5"
         name="type"
         onChange={(e) => setType(e.target.value)}
       >
