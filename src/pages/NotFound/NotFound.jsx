@@ -11,7 +11,7 @@ const NotFound = () => {
           Sorry, This page isn't available
         </h2>
         <Link to="/">
-          <button className="bg-orange-500 rounded-full p-2 hover:bg-neutral-50 hover:text-orange-500">
+          <button className="bg-purple-500 rounded-full p-2 hover:bg-neutral-50 hover:text-teal-500">
             <span className="text-xl"> Go To Home Page</span>
 
           </button>
