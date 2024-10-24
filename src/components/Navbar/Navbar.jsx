@@ -23,7 +23,7 @@ function Navbar() {
         )}
         {auth?.email ? (
           <button
-            className="py-2 px-5 text-white font-semibold rounded-full bg-red-600 transition-all duration-300 hover:bg-red-700 hover:shadow-md"
+            className="py-2 px-5 text-white font-semibold rounded-full bg-purple-500npm transition-all duration-300 hover:bg-red-700 hover:shadow-md"
             onClick={logoutUser}
           >
             Logout

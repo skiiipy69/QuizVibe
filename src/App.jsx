@@ -22,8 +22,9 @@ function App() {
   return (
     <AnimateProvider className="flex flex-col text-sm md:mx-auto md:max-w-xl ">
       <h1 className="text-lg font-bold text-slate-800 mb-10">
-        Welcome to <span>Bert Quiz</span>
-      </h1>
+  Welcome to <span className="animate-pulse text-indigo-600">Quiz</span> <span className="text-teal-400">Vibe</span>
+</h1>
+
 
       <h3 className="text-xs md:text-sm text-neutral-600 font-semibold mb-3">
         Select type{" "}
