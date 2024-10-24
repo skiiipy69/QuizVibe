@@ -18,7 +18,7 @@ function Question() {
 
   return (
     <AnimateProvider className="max-w-xl mx-auto ">
-      <h1 className="text-base md:text-lg font-semibold mb-5 text-orange-900">
+      <h1 className="text-base md:text-lg font-semibold mb-5 text-purple-900">
         Quizzz Info
       </h1>
 
@@ -30,7 +30,7 @@ function Question() {
 
         <div className="flex space-x-5">
           <p className="min-w-[170px]">Category </p>
-          <p className="font-bold text-orange-500">{questionData[0].category}</p>
+          <p className="font-bold text-purple-500">{questionData[0].category}</p>
         </div>
 
         <div className="flex space-x-5">
