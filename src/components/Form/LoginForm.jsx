@@ -29,7 +29,7 @@ function LoginForm({ loading }) {
           required
           aria-describedby="email-error"
           placeholder="Enter your email"
-          className="w-full mt-1 bg-neutral-50 border border-gray-200 rounded-lg p-3 placeholder:text-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/80"
+          className="w-full mt-1 bg-neutral-50 border border-gray-200 rounded-lg p-3 placeholder:text-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/80"
         />
         {actionData?.errors?.email && (
           <p id="email-error" className="mt-1 text-xs text-red-500">
@@ -46,7 +46,7 @@ function LoginForm({ loading }) {
           >
             Password
           </label>
-          <Link to="/forgot-password" className="text-xs text-orange-500 hover:underline">
+          <Link to="/forgot-password" className="text-xs text-teal-500 hover:underline">
             Forgot Password?
           </Link>
         </div>
@@ -58,7 +58,7 @@ function LoginForm({ loading }) {
           required
           aria-describedby="password-error"
           placeholder="Enter your password"
-          className="w-full mt-1 bg-neutral-50 border border-gray-200 rounded-lg p-3 placeholder:text-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/80"
+          className="w-full mt-1 bg-neutral-50 border border-gray-200 rounded-lg p-3 placeholder:text-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/80"
         />
         {actionData?.errors?.password && (
           <p id="password-error" className="mt-1 text-xs text-red-500">
@@ -71,8 +71,8 @@ function LoginForm({ loading }) {
         disabled={loading}
         className={`flex items-center justify-center w-full rounded-full p-3 font-semibold text-lg transition ${
           loading
-            ? "bg-orange-300 cursor-not-allowed"
-            : "bg-orange-500 hover:bg-orange-600 text-white"
+            ? "bg-teal-300 cursor-not-allowed"
+            : "bg-teal-500 hover:bg-teal-700 hover:text-black text-white focus:ring-teal-500"
         }`}
         type="submit"
       >
@@ -95,7 +95,7 @@ function LoginForm({ loading }) {
 
       <p className="text-gray-600 text-sm font-semibold text-center">
         Don't have an account?{" "}
-        <Link className="text-orange-500 hover:underline" to="/register">
+        <Link className="text-purple-500 hover:underline" to="/register">
           Sign Up
         </Link>
       </p>

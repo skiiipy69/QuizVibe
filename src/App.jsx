@@ -57,7 +57,7 @@ function App() {
       </select>
 
       <button
-        className="flex rounded-full bg-orange-500 p-1 py-2 md:py-2 justify-center font-semibold md:font-bold text-sm md:text-base text-center hover:bg-neutral-50 hover:text-orange-500 transition text-white"
+        className="flex rounded-full bg-purple-500 p-1 py-2 md:py-2 justify-center font-semibold md:font-bold text-sm md:text-base text-center hover:bg-neutral-50 hover:text-teal-500 transition text-white"
         onClick={handleBegin}
       >
         Begin Test
