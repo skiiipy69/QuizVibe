@@ -13,7 +13,7 @@ const FeatureCard = ({ icon: Icon, title, description }) => (
   </div>
 );
 
-const TeamMember = ({ name, role, imageSrc }) => (
+const TeamMember = ({ name, role, title, imageSrc }) => (
   <div className="flex flex-col items-center p-6 bg-gray-800 rounded-xl">
     <div className="w-24 h-24 mb-4 rounded-full overflow-hidden">
       <img
@@ -24,6 +24,7 @@ const TeamMember = ({ name, role, imageSrc }) => (
     </div>
     <h3 className="text-xl font-bold text-white mb-1">{name}</h3>
     <p className="text-teal-400">{role}</p>
+    <p className="text-gray-300">{title}</p> {/* Add the title here */}
   </div>
 );
 
@@ -71,12 +72,14 @@ const AboutUs = () => {
     {
       name: "Zouhair Elabassi",
       role: "Founder & CEO",
-      imageSrc: "dad.JPG" // Path to your image
+      title: "ALX Africa Software Engineering Student",
+      imageSrc: "./path/to/zouhair-image.jpg" 
     },
     {
       name: "Mohammed Dad",
       role: "Co-Founder",
-      imageSrc: "/dad.JPG" // You can add another image if you have one for this member
+      title: "ALX Africa Software Engineering Student",
+      imageSrc: "./dad.JPG"
     },
   ];
 
