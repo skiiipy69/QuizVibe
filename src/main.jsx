@@ -7,7 +7,8 @@ import { action as loginAction } from "./pages/Login/LoginPage";
 import LandingPage from "./pages/LandingPage";
 import About from "./pages/AboutUs/";
 import ContactUs from "./pages/ContactUs";
-import HowToPlay from "./pages/HowToPlay"; // Add this import
+import HowToPlay from "./pages/HowToPlay";
+import Dashboard from "./pages/Dashboard"; // Add this import
 import RootLayout from "./layout/RootLayout"
 
 import {
@@ -35,14 +36,14 @@ const router = createBrowserRouter(
       <Route index element={<LandingPage />} />
       <Route path="about" element={<About />} />
       <Route path="contact" element={<ContactUs />} />
-      <Route path="howtoplay" element={<HowToPlay />} /> {/* Add this route */}
       <Route element={<RequireLogout />}>
         <Route path="login" element={<LoginPage />} action={loginAction} />
         <Route path="register" element={<RegisterPage />} action={registerAction} />
       </Route>
       <Route element={<RequireAuth />}>
         <Route path="home" element={<App />} />
-                
+        <Route path="dashboard" element={<Dashboard />} /> {/* Add this route */}
+        <Route path="howtoplay" element={<HowToPlay />} />
         <Route path="question" element={<Question />} />
         <Route path="question/:id" element={<SingleQuestion />} />
         <Route path="finish" element={<Success />} />
