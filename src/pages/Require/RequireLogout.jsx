@@ -1,10 +1,11 @@
+// RequireLogout.jsx
 import { Outlet, Navigate } from "react-router-dom";
 import useQuestionStore from "../../store/zustand";
 
-function RequireAuth() {
+function RequireLogout() {
   const { auth } = useQuestionStore();
 
-  return auth?.email ? <Navigate to={"/"} replace={true} /> : <Outlet />;
+  return auth?.email ? <Navigate to={"/home"} replace={true} /> : <Outlet />;
 }
 
-export default RequireAuth;
+export default RequireLogout;

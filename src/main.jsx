@@ -4,6 +4,7 @@ import App from "./App";
 import "./index.css";
 import { action as registerAction } from "./pages/Register/RegisterPage";
 import { action as loginAction } from "./pages/Login/LoginPage";
+import LandingPage from "./pages/LandingPage";
 import RootLayout from "./layout/RootLayout"
 
 import {
@@ -27,19 +28,16 @@ import {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />} errorElement={<NotFound />}>
+      {/* Public route - Landing page */}
+      <Route index element={<LandingPage />} />
+
       <Route element={<RequireLogout />}>
-        {/* User Need to logout */}
         <Route path="login" element={<LoginPage />} action={loginAction} />
-        <Route
-          path="register"
-          element={<RegisterPage />}
-          action={registerAction}
-        />
+        <Route path="register" element={<RegisterPage />} action={registerAction} />
       </Route>
 
       <Route element={<RequireAuth />}>
-        {/* User need to login */}
-        <Route index element={<App />} />
+        <Route path="home" element={<App />} />
         <Route path="question" element={<Question />} />
         <Route path="question/:id" element={<SingleQuestion />} />
         <Route path="finish" element={<Success />} />

@@ -14,7 +14,7 @@ function LoginPage() {
   useEffect(() => {
     if (data?.type === "SUCCESS") {
       authUser({ email: data.email, id: data.id });
-      navigate("/");
+      navigate("/home");  // Changed from "/" to "/home"
     }
   }, [data]);
 
