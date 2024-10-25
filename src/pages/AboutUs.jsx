@@ -73,7 +73,7 @@ const AboutUs = () => {
       name: "Zouhair Elabassi",
       role: "Founder & CEO",
       title: "ALX Africa Software Engineering Student",
-      imageSrc: "./path/to/zouhair-image.jpg" 
+      imageSrc: "./zouhair.jpg" 
     },
     {
       name: "Mohammed Dad",
