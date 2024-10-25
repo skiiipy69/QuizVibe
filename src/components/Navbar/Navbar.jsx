@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import useQuestionStore from "../../store/zustand";
-import { Menu, X, Home, Info, Phone, BookOpen, LogOut } from 'lucide-react';
+import { Menu, X, Home, Info, Phone, BookOpen, LogOut, User } from 'lucide-react';
 
 const NavLink = ({ to, children, icon: Icon }) => (
   <Link
@@ -46,7 +46,10 @@ const Navbar = () => {
               <NavLink to="/about" icon={Info}>About</NavLink>
               <NavLink to="/contact" icon={Phone}>Contact</NavLink>
               {isAuthenticated && (
-                <NavLink to="/howtoplay" icon={BookOpen}>How To Play</NavLink>
+                <>
+                  <NavLink to="/dashboard" icon={User}>Dashboard</NavLink>
+                  <NavLink to="/howtoplay" icon={BookOpen}>How To Play</NavLink>
+                </>
               )}
             </div>
           </div>
@@ -101,10 +104,13 @@ const Navbar = () => {
       >
         <div className="px-4 pt-2 pb-4 space-y-2 bg-gray-900">
           <NavLink to="/" icon={Home}>Home</NavLink>
-          <NavLink to="/AboutUs" icon={Info}>About</NavLink>
+          <NavLink to="/about" icon={Info}>About</NavLink>
           <NavLink to="/contact" icon={Phone}>Contact</NavLink>
           {isAuthenticated && (
-            <NavLink to="/howtoplay" icon={BookOpen}>How To Play</NavLink>
+            <>
+              <NavLink to="/dashboard" icon={User}>Dashboard</NavLink>
+              <NavLink to="/howtoplay" icon={BookOpen}>How To Play</NavLink>
+            </>
           )}
           
           <div className="pt-4 space-y-2">
