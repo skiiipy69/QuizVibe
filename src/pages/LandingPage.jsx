@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Brain, Trophy, Clock, Users } from 'lucide-react';
+import useQuestionStore from "../store/zustand"; // Updated import path
 
 const LandingPage = () => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(null);
+  const { auth } = useQuestionStore(); // Use the same auth store as other components
+  
+  // Check if user is logged in using the auth store instead of localStorage
+  const isLoggedIn = !!auth?.email;
 
   const features = [
     {
@@ -63,34 +68,45 @@ const LandingPage = () => {
           ))}
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-          <button
-            onMouseEnter={() => setIsHovered('login')}
-            onMouseLeave={() => setIsHovered(null)}
-            onClick={() => navigate('/login')}
-            className={`px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform
-              ${isHovered === 'login' 
-                ? 'bg-purple-700 translate-y-1 scale-105' 
-                : 'bg-purple-600 hover:bg-purple-700'} 
-              text-white shadow-lg hover:shadow-xl`}
-          >
-            Login to Start
-          </button>
-          
-          <button
-            onMouseEnter={() => setIsHovered('register')}
-            onMouseLeave={() => setIsHovered(null)}
-            onClick={() => navigate('/register')}
-            className={`px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform
-              ${isHovered === 'register' 
-                ? 'bg-pink-700 translate-y-1 scale-105' 
-                : 'bg-pink-600 hover:bg-pink-700'} 
-              text-white shadow-lg hover:shadow-xl`}
-          >
-            Register Now
-          </button>
-        </div>
+        {/* CTA Section */}
+        {!isLoggedIn ? (
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+            <button
+              onMouseEnter={() => setIsHovered('login')}
+              onMouseLeave={() => setIsHovered(null)}
+              onClick={() => navigate('/login')}
+              className={`px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform
+                ${isHovered === 'login' 
+                  ? 'bg-purple-700 translate-y-1 scale-105' 
+                  : 'bg-purple-600 hover:bg-purple-700'} 
+                text-white shadow-lg hover:shadow-xl`}
+            >
+              Login to Start
+            </button>
+            
+            <button
+              onMouseEnter={() => setIsHovered('register')}
+              onMouseLeave={() => setIsHovered(null)}
+              onClick={() => navigate('/register')}
+              className={`px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform
+                ${isHovered === 'register' 
+                  ? 'bg-pink-700 translate-y-1 scale-105' 
+                  : 'bg-pink-600 hover:bg-pink-700'} 
+                text-white shadow-lg hover:shadow-xl`}
+            >
+              Register Now
+            </button>
+          </div>
+        ) : (
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={() => navigate('/home')}
+              className="px-8 py-4 rounded-lg font-semibold text-lg bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Go to Dashboard
+            </button>
+          </div>
+        )}
 
         {/* Stats Section */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">

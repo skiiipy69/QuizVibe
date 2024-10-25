@@ -101,7 +101,7 @@ const Navbar = () => {
       >
         <div className="px-4 pt-2 pb-4 space-y-2 bg-gray-900">
           <NavLink to="/" icon={Home}>Home</NavLink>
-          <NavLink to="/about" icon={Info}>About</NavLink>
+          <NavLink to="/AboutUs" icon={Info}>About</NavLink>
           <NavLink to="/contact" icon={Phone}>Contact</NavLink>
           {isAuthenticated && (
             <NavLink to="/howtoplay" icon={BookOpen}>How To Play</NavLink>
