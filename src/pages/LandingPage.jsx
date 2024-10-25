@@ -103,7 +103,7 @@ const LandingPage = () => {
               onClick={() => navigate('/home')}
               className="px-8 py-4 rounded-lg font-semibold text-lg bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              Go to Dashboard
+              Get Started
             </button>
           </div>
         )}
