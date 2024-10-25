@@ -6,7 +6,8 @@ import { action as registerAction } from "./pages/Register/RegisterPage";
 import { action as loginAction } from "./pages/Login/LoginPage";
 import LandingPage from "./pages/LandingPage";
 import About from "./pages/AboutUs/";
-import ContactUs from "./pages/ContactUs"; // Add this import
+import ContactUs from "./pages/ContactUs";
+import HowToPlay from "./pages/HowToPlay"; // Add this import
 import RootLayout from "./layout/RootLayout"
 
 import {
@@ -33,7 +34,8 @@ const router = createBrowserRouter(
       {/* Public route - Landing page */}
       <Route index element={<LandingPage />} />
       <Route path="about" element={<About />} />
-      <Route path="contact" element={<ContactUs />} /> {/* Add this route */}
+      <Route path="contact" element={<ContactUs />} />
+      <Route path="howtoplay" element={<HowToPlay />} /> {/* Add this route */}
       <Route element={<RequireLogout />}>
         <Route path="login" element={<LoginPage />} action={loginAction} />
         <Route path="register" element={<RegisterPage />} action={registerAction} />
