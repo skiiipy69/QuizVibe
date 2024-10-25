@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Brain, Target, Users, Sparkles, Book, Trophy } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import useQuestionStore from "../store/zustand";
 
 const FeatureCard = ({ icon: Icon, title, description }) => (
   <div className="flex flex-col items-center p-6 bg-gray-800 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
@@ -26,6 +28,13 @@ const TeamMember = ({ name, role, imageSrc }) => (
 );
 
 const AboutUs = () => {
+  const navigate = useNavigate();
+  const { auth } = useQuestionStore();
+  const [isHovered, setIsHovered] = useState(null);
+  
+  // Check if user is logged in
+  const isLoggedIn = !!auth?.email;
+
   const features = [
     {
       icon: Brain,
@@ -80,6 +89,8 @@ const AboutUs = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+      {/* Previous sections remain the same until CTA Section */}
+      
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -143,13 +154,47 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* CTA Section */}
+      {/* Updated CTA Section with conditional rendering */}
       <div className="max-w-7xl mx-auto mt-20 text-center">
         <h2 className="text-3xl font-bold text-white mb-6">Ready to Start Learning?</h2>
         <p className="text-gray-300 mb-8">Join thousands of learners expanding their knowledge daily</p>
-        <button className="px-8 py-3 bg-purple-500 text-white font-semibold rounded-full hover:bg-teal-400 transition-colors duration-300">
-          Get Started Now
-        </button>
+        
+        {!isLoggedIn ? (
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <button
+              onMouseEnter={() => setIsHovered('login')}
+              onMouseLeave={() => setIsHovered(null)}
+              onClick={() => navigate('/login')}
+              className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 transform
+                ${isHovered === 'login' 
+                  ? 'bg-purple-600 translate-y-1 scale-105' 
+                  : 'bg-purple-500 hover:bg-purple-600'} 
+                text-white shadow-lg hover:shadow-xl`}
+            >
+              Login to Start
+            </button>
+            
+            <button
+              onMouseEnter={() => setIsHovered('register')}
+              onMouseLeave={() => setIsHovered(null)}
+              onClick={() => navigate('/register')}
+              className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 transform
+                ${isHovered === 'register' 
+                  ? 'bg-teal-500 translate-y-1 scale-105' 
+                  : 'bg-teal-400 hover:bg-teal-500'} 
+                text-white shadow-lg hover:shadow-xl`}
+            >
+              Register Now
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={() => navigate('/home')}
+            className="px-8 py-3 bg-purple-500 text-white font-semibold rounded-full hover:bg-teal-400 transition-colors duration-300 shadow-lg hover:shadow-xl"
+          >
+            Get Started Now
+          </button>
+        )}
       </div>
     </div>
   );
