@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Brain, Trophy, Clock, Users } from 'lucide-react';
 
 const LandingPage = () => {
@@ -36,9 +36,11 @@ const LandingPage = () => {
         <div className="text-center mb-16 space-y-4">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Welcome to{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 animate-pulse">
-              Quiz Vibe
-            </span>
+            <Link to="/">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 animate-pulse">
+                Quiz Vibe
+              </span>
+            </Link>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Test your knowledge, challenge your mind, and compete with others in this exciting quiz adventure!
