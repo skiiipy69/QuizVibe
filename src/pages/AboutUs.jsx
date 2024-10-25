@@ -32,7 +32,6 @@ const AboutUs = () => {
   const { auth } = useQuestionStore();
   const [isHovered, setIsHovered] = useState(null);
   
-  // Check if user is logged in
   const isLoggedIn = !!auth?.email;
 
   const features = [
@@ -70,27 +69,19 @@ const AboutUs = () => {
 
   const team = [
     {
-      name: "Sarah Johnson",
-      role: "Founder & CEO"
+      name: "Zouhair Elabassi",
+      role: "Founder & CEO",
+      imageSrc: "dad.JPG" // Path to your image
     },
     {
-      name: "Michael Chen",
-      role: "Head of Content"
+      name: "Mohammed Dad",
+      role: "Co-Founder",
+      imageSrc: "/dad.JPG" // You can add another image if you have one for this member
     },
-    {
-      name: "Alex Rivera",
-      role: "Lead Developer"
-    },
-    {
-      name: "Emily Parker",
-      role: "UX Designer"
-    }
   ];
 
   return (
     <div className="min-h-screen bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      {/* Previous sections remain the same until CTA Section */}
-      
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -126,13 +117,15 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Team Section */}
+      {/* Team Section - Updated to center two members */}
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-white mb-12 text-center">Meet Our Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member, index) => (
-            <TeamMember key={index} {...member} />
-          ))}
+        <div className="max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+            {team.map((member, index) => (
+              <TeamMember key={index} {...member} />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -154,7 +147,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Updated CTA Section with conditional rendering */}
+      {/* CTA Section */}
       <div className="max-w-7xl mx-auto mt-20 text-center">
         <h2 className="text-3xl font-bold text-white mb-6">Ready to Start Learning?</h2>
         <p className="text-gray-300 mb-8">Join thousands of learners expanding their knowledge daily</p>
