@@ -23,8 +23,9 @@ function Success() {
 
   const handleClick = () => {
     resetQuestion();
-    navigate("/");
+    navigate("/dashboard"); // Updated to navigate to dashboard
   };
+
   return (
     <AnimateProvider className="flex flex-col space-y-10 md:max-w-xl md:mx-auto">
       <h3 className="text-lg text-center text-neutral-900 font-bold md:text-xl">
