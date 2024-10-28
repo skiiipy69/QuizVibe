@@ -1,6 +1,9 @@
 <h1 align="center">QuizVibe 🎯</h1>
 <h3 align="center">Test Your Knowledge, Challenge Your Mind</h3>
-
+<div align="center">
+  <img src="https://img.shields.io/badge/ALX%20Africa-Portfolio%20Project-orange" alt="ALX Africa Portfolio Project"/>
+  <img src="https://img.shields.io/badge/Software%20Engineering-Education-blue" alt="Software Engineering"/>
+</div>
 <p align="center">
   <a href="#overview">Overview</a> •
   <a href="#features">Features</a> •
@@ -9,11 +12,17 @@
   <a href="#tech-stack">Tech Stack</a> •
   <a href="#team">Team</a>
 </p>
+Overview 🚀
+QuizVibe is a portfolio project developed as part of the ALX Africa Software Engineering Program. This interactive quiz platform demonstrates the practical application of full-stack development skills acquired during the program, showcasing modern web development practices, user-centric design, and secure authentication implementation.
+ALX Africa Context 🌍
+This project represents the culmination of our learning journey at ALX Africa, where we've applied:
 
-## Overview 🚀
-
-QuizVibe is an interactive quiz platform designed to make learning engaging and fun. With multiple topics, difficulty levels, and detailed performance tracking, users can challenge themselves while monitoring their progress.
-
+Full-stack development principles
+User authentication and security
+Database management
+Responsive design
+Team collaboration
+Project management
 ## Features ✨
 
 - 🔐 **Secure Authentication**
